@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+#myInput {
+  background-image: url('/css/searchicon.png');
+  background-position: 10px 12px;
+  background-repeat: no-repeat;
+  width: 100%;
+  font-size: 16px;
+  padding: 12px 20px 12px 40px;
+  border: 1px solid #ddd;
+  margin-bottom: 12px;
+}
+
+#myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: blanchedalmond;
+}
+</style>
+</head>
+<body>
+
+<h2>Arama</h2>
+
+<input type="text" id="myInput" onkeyup="myFunction()" placeholder=">Arama Yapın..." title="Type in a name">
+
+<ul id="myUL">
+  <li><a href="/kitaplar/fahrenheit451.html">Ray Bradbury - Fahrenheit 451</a></li>
+  <li><a href="/kitaplar/beyaz.html">Beyaz Geceler - Dostoyevski</a></li>
+  <li><a href="/kitaplar/simyaci.html">Simyacı - Paul Coelho</a></li>
+  <li><a href="/kitaplar/insanyasar.html">İnsan Ne İle Yaşar?</a></li>
+  <li><a href="/kitaplar/1984.html">1984 - George Orwell</a></li>
+  <li><a href="/kitaplar/mai.html">Mai ve Siyah - Halit Ziya Uşaklıgil</a></li>
+  <li><a href="/kitaplar/cesuryeni.html">Cesur Yeni Dünya - Aldus Huxley</a></li>
+  <li><a href="/kitaplar/felatun.html">Felatun Bey ile Rakım Efendi - Ahmet M. Efendi</a></li>
+  <li><a href="/kitaplar/ibis.html">İbiş'in Rüyası - Tarık Buğra</a></li>
+  <li><a href="/kitaplar/idealdevlet.html">İdeal Devlet - Farabi </a></li>
+  <li><a href="/kitaplar/thomas.html">Dünyanın Tekdüzeleşmesi - Thomas Bauer</a></li>
+  <li><a href="/kitaplar/harry.html">Harry Potter ve Felsefe Taşı - J.K. Rowling</a></li>
+  <li><a href="/kitaplar/platon.html">Devlet - Platon</a></li>
+  <li><a href="/kitaplar/marsli.html">Marslı - Andy Weir</a></li>
+  <li><a href="/kitaplar/marti.html">Martı - Jonathan Livingston</a></li>
+  <li><a href="/kitaplar/hayvanciftlik.html">Hayvan Çiftliği - George Orwell</a></li>
+  <li><a href="/kitaplar/otomatik.html">Otomatik Portakal - Anthony Burgess</a></li>
+  <li><a href="/kitaplar/solayak.html">Sol Ayağım - Christy Brown</a></li>
+  <li><a href="/kitaplar/sokrates.html">Sokrates Savunması - Platon (Sokrates)</a></li>
+  <li><a href="/kitaplar/marsdestani.html">Bir Mars Destanı - Stein G. Weinbaum</a></li>
+  <li><a href="/kitaplar/yuzuk.html">Yüzüklerin Efendisi - J.R.R Tolkien</a></li>
+
+</ul>
+
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+</script>
+
+</body>
+</html>
